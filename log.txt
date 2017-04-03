@@ -1,0 +1,24 @@
+[27 05 16 04:24:33](128.250.181.29)(soc_id 5) client connected
+[27 05 16 04:24:33](0.0.0.0) server secret = BBFC
+[27 05 16 04:24:40](128.250.181.29)(soc_id 5) client's guess = ABCD
+[27 05 16 04:24:40](0.0.0.0) server's hint  = [1:1]
+[27 05 16 04:25:08](127.0.0.1)(soc_id 5) client connected
+[27 05 16 04:25:08](0.0.0.0) server secret = CBBA
+[27 05 16 04:25:11](127.0.0.1)(soc_id 5) client's guess = ABBB
+[27 05 16 04:25:11](0.0.0.0) server's hint  = [2:1]
+
+
+--------------------STATISTICS---------------------
+Number of clients connected: 2
+Number of clients that were successful: 0
+Initial memory available: 684032KB
+Time spent executing in user mode: 0.1509 secs
+Time spent executing in kernel mode: 0.2627 secs
+
+---------------------------------------------------
+Client : (128.250.181.29) (soc_id 5) 
+Memory available when running: 774144KB
+
+Client : (127.0.0.1) (soc_id 5) 
+Memory available when running: 778240KB
+

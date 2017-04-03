@@ -1,0 +1,44 @@
+Computer Systems Project 2 Report
+Author: Kaven Peng kavenp 696573
+
+I ran my server on multiple servers: Digitalis, NectarCloud(Ubuntu 15.10) and my own computer (Macbook).
+Once my server has received a SIGINT it will write overall statistics and then close the log.txt.
+These statistics include number of clients connected, number of successful clients,
+the initial allocated memory for the main server process, the time spent in user mode and kernel mode for server and each separate threads maximum allocated memory.
+
+NectarCloud:
+While running server on NectarCloud there were a few things that were quite different.
+1. If you only connect clients from a single IP address the server never goes into user mode.
+	However when you connect from 2 different IP's the server uses an equal amount of time in both
+	kernel mode and user mode.
+	I am assuming this is the case since we are maintaining NectarCloud Linux server by ourselves,
+	we essentially have superuser administrative powers. Therefore anything running on NectarCloud has
+	absolute access to everything, so it doesn't go into user mode unless a new connection from different IP
+	forces it to switch to user mode to deal with it.
+
+2. The amount of initial memory allocated to the process is the same size as each new thread.
+	The linux server on NectarCloud hasn't been configured in any way, so I conclude that this value 3712KB
+	was the default maximum heap size allocated to all processes on my NectarCloud server.
+
+Digitalis and Home Computer:
+Both my home computer and Digitalis ended up with very similar results.
+However 
+1. On Digitalis more time was spent running in user mode than kernel mode,
+	whereas the opposite was true on my Home Computer.
+	I am assuming this is because we have much less priviledges and our movements on a shared university
+	server is much more restricted than a personal laptop.
+
+2. In terms of allocated memory, I was allocated a much larger chunk of memory on my Home Computer
+	compared to what was allocated on Digitalis.
+	This makes sense since Digitalis is a shared university server with many users at the same time.
+	Therefore memory resources are set more strictly than someone's personal computer.
+
+Similarities:
+1. Allocated thread size weren't changed depending on where the server was running.
+	Each thread has a default amount of memory allocated to them depending on the system.
+
+2. Initial amount of memory allocated for server process was always less than thread memory.
+	It's possible that while compiling the code has already been optimized more in terms of memory,
+	whereas new threads are created on the fly therefore may not be as optimized.
+
+These are the results of my testing. If I had more time I would go into more depth for each separate thread.
